@@ -5,7 +5,7 @@ from django.shortcuts import HttpResponse
 
 
 def home(request):
-    return HttpResponse('Bem vindo 2!!')
+    return render(request, 'recipes/home.html')
 
 
 def sobre(request):
