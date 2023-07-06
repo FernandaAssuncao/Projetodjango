@@ -69,7 +69,7 @@ h6 {
 }
 
 html {
-    font-size: 64.5%;
+    font-size: 74.5%;
 }
 
 .main-logo {
@@ -166,6 +166,7 @@ body {
 
 .recipe-list-item {
     max-width: 44rem;
+    height: fit-content;
 }
 
 .recipe-list-item:hover {
@@ -175,6 +176,11 @@ body {
 .recipe-title-container {
     padding: var(--spacing-gutter-medium);
     padding-bottom: 2rem;
+}
+
+.recipe-title-container a {
+    text-decoration: none;
+    color: var(--color-primary-dark);
 }
 
 .recipe-author {
@@ -263,4 +269,9 @@ body {
 .main-content-detail .recipe-list-item:hover {
   transform: scale(1);
   box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.preparation-steps {
+  padding: var(--spacing-gutter-medium);
 }
