@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_list_or_404
 from utils.recipes.factory import make_recipe
-from django.http import Http404
 from .models import Recipe
 
 # Create your views here.
