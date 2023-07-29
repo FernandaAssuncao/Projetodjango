@@ -6,6 +6,8 @@
     <div class="main-content main-content-list container">
         {% for recipe in recipes %}
             {% include 'recipes/partials/recipes.html' %}
+        {% empty %}
+            <h1>Não existe receitas para serem exibidas aqui!</h1>
         {% endfor %}
 
     </div>
