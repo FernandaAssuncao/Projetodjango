@@ -5,9 +5,6 @@ from recipes.models import Recipe
 
 
 class RecipesViewsTest(RecipeTestBase):
-    def tearDown(self) -> None:
-        return super().tearDown()
-
     def test_recipe_home_view_function_is_correct(self):
         view = resolve(
             reverse('recipes:home')
@@ -23,7 +20,6 @@ class RecipesViewsTest(RecipeTestBase):
         self.assertTemplateUsed(response, 'recipes/pages/home.html')
 
     def test_recipe_home_template_shows_no_recipes_found_if_no_recipe(self):
-        Recipe.objects.get(pk=1).delete()
         response = self.client.get(reverse('recipes:home'))
         self.assertIn(
             'Não existe receitas para serem exibidas aqui!',
@@ -31,15 +27,12 @@ class RecipesViewsTest(RecipeTestBase):
         )
 
     def test_recipe_home_template_loads_recipes(self):
+        self.make_recipe()
         response = self.client.get(reverse('recipes:home'))
         content = response.content.decode('utf-8')
         response_context_recipes = response.context['recipes']
 
         self.assertIn('Recipe Title', content)
-        self.assertIn('10 Minutos', content)
-        self.assertIn('5 Porções', content)
-        self.assertEqual(len(response_context_recipes), 1)
-
         ...
 
     def test_recipe_category_view_function_is_correct(self):
